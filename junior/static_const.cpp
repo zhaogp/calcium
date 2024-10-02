@@ -26,18 +26,22 @@ class StaticConst {
             cout << "已达到能创建实例的最大数量！！！" << endl;
         }
     }
-
-
 };
 
 int StaticConst::instanceCount = 0;  // 全局初始化类变量
 
+struct Node {
+    int data;
+    Node* next;
+};
+
 int main() {
-    int x = 100;
-    const int* ptr = &x;
-    cout << *ptr << endl;
-    cout << ptr << endl;
-    cout << "信息学奥林匹克" << endl;
+    Node* head;
+    Node* newNode = new Node;
+    newNode->data = 42;
+    head->next = newNode;
+
+    cout << head->next->data << endl;
 
     return 0;
 }
