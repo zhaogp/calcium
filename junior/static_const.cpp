@@ -1,5 +1,9 @@
 #include <iostream>
+#include <boost/multiprecision/cpp_dec_float.hpp>
+#include <boost/algorithm/string.hpp>
+
 using namespace std;
+using namespace boost::multiprecision;
 
 
 void staticVariable() {
@@ -35,13 +39,25 @@ struct Node {
     Node* next;
 };
 
-int main() {
-    Node* head;
-    Node* newNode = new Node;
-    newNode->data = 42;
-    head->next = newNode;
+void high_precision() {
 
-    cout << head->next->data << endl;
+    cpp_dec_float_50 a("123456789012345678901234567890.12345678901234567890");
+    cpp_dec_float_50 b("987654321098765432109876543210.98765432109876543210");
+
+    cpp_dec_float_50 sum = a + b;
+    cpp_dec_float_50 product = a * b;
+
+    cout << "a + b = " << sum << endl;
+    cout << "a * b = " << product << endl;
+
+    string s = "csp-j";
+    boost::to_upper(s);
+    cout << s << endl;
+
+}
+
+int main() {
+    high_precision();
 
     return 0;
 }
