@@ -56,8 +56,10 @@ void high_precision() {
 
 }
 
+
+
 int main() {
-    high_precision();
+    recurisiveTree();
 
     return 0;
 }

@@ -7,3 +7,6 @@ helloworld
 .DS_Store
 output
 *.out
+build
+3rdparty
+lib
