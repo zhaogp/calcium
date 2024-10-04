@@ -1,7 +1,6 @@
 *.exe
 *.dmg
 .project
-.vscode
 *.dSYM
 helloworld
 .DS_Store
