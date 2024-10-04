@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"name": "calcium",
+			"path": ".."
+		},
+		{
+			"name": "build",
+			"path": "../build"
+		}
+	],
+    "settings": {
+    }
+}
