@@ -1,8 +1,7 @@
+# 基础配置
 cmake_minimum_required(VERSION 3.30)
 project(Calcium VERSION 0.1)
-
-# 构建选项
-file(GLOB MY_SOURCES "src/*.cpp" "src/*.hpp" "src/*.h" "include/calcium/*.h" "include/calcium/*.hpp" "include/*.h" "include/*.hpp")
+file(GLOB MY_SOURCES "src/main.cpp" "src/junior/binary_tree.cpp" "include/*.h")
 add_executable("${PROJECT_NAME}" ${MY_SOURCES})
 
 # 依赖库
@@ -40,4 +39,3 @@ add_subdirectory(src)
 # 添加测试
 enable_testing()
 add_subdirectory(tests)
-

@@ -55,11 +55,3 @@ void high_precision() {
     cout << s << endl;
 
 }
-
-
-
-int main() {
-    recurisiveTree();
-
-    return 0;
-}
