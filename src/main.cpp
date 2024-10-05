@@ -3,19 +3,19 @@
 */
 #include <iostream>
 
-#include "binary_tree.h"
+#include "junior/binary_tree.h"
+#include "math_functions/my_tools.h"
 
 using namespace std;
 
 
 int main() {
-        // 示例二叉树:
+    // 示例二叉树:
     //       1
     //      / \
     //     2   3
     //    / \
     //   4   5
-
     BinaryTree* root = new BinaryTree(1);
     root->left = new BinaryTree(2);
     root->right = new BinaryTree(3);
@@ -24,6 +24,8 @@ int main() {
 
     recurisiveTree(root);
     cout << "complete" << endl;
+
+    sqrt(2);
 
     return 0;
 }
