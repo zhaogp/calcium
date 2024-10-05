@@ -10,5 +10,10 @@
 		}
 	],
     "settings": {
+        "files.associations": {
+            "ostream": "cpp",
+            "complex": "cpp",
+            "cmath": "cpp"
+        }
     }
 }

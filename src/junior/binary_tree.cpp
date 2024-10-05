@@ -4,10 +4,7 @@
 using namespace std;
 
 
-// 二叉树
-
-
-// 递归实现
+// 二叉树前序遍历
 void preOrderRecurisive(BinaryTree* root) {
     if (root == nullptr)
         return;
@@ -17,6 +14,7 @@ void preOrderRecurisive(BinaryTree* root) {
     preOrderRecurisive(root->right);
 }
 
+// 二叉树中序遍历
 void inOrderRecurisive(BinaryTree* root) {
     if (root == nullptr)
         return;
@@ -26,6 +24,7 @@ void inOrderRecurisive(BinaryTree* root) {
     inOrderRecurisive(root->right);
 }
 
+// 二叉树后序遍历
 void postOrderRecurisive(BinaryTree* root) {
     if (root == nullptr)
         return;
@@ -35,6 +34,7 @@ void postOrderRecurisive(BinaryTree* root) {
     cout << root->val << " ";
 }
 
+// 二叉树遍历
 void recurisiveTree(BinaryTree* root) {
 
     cout << "前序遍历" << endl;
@@ -48,5 +48,4 @@ void recurisiveTree(BinaryTree* root) {
     cout << "后序遍历" << endl;
     postOrderRecurisive(root);
     cout << endl;
-
 }

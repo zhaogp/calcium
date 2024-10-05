@@ -2,15 +2,15 @@
     主入口文件
 */
 #include <iostream>
-
-#include "junior/binary_tree.h"
-#include "math_functions/my_tools.h"
+#include "binary_tree.h"
+#include "my_sqrt.h"
 
 using namespace std;
 
 
 int main() {
-    // 示例二叉树:
+    // 1. junior 库
+    //   示例二叉树:
     //       1
     //      / \
     //     2   3
@@ -25,7 +25,8 @@ int main() {
     recurisiveTree(root);
     cout << "complete" << endl;
 
-    sqrt(2);
+    // 2. common 库
+    my_sqrt(2);
 
     return 0;
 }
