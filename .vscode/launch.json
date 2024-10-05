@@ -8,7 +8,7 @@
         "program": "${workspaceRoot}/bin/calcium",
         "args": ["-std=c++17"],
         "stopAtEntry": false,
-        "cwd": "${workspaceFolder}/build",
+        "cwd": "${workspaceFolder}/bin",
         "environment": [],
         "externalConsole": false,
         "MIMode": "lldb",
@@ -19,6 +19,7 @@
                 "ignoreFailures": true
             }
         ],
+        "preLaunchTask": "calcium-build"
     }
     ]
 }

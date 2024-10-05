@@ -4,10 +4,9 @@
         {
             "label": "calcium-build",
             "type": "shell",
-            "command": "cmake",
+            // "command": "cd build; rm -rf ./*; cmake ..; make install",
+            "command": "cd build; cmake ..; make install",
             "args": [
-                "--build",
-                "${workspaceFolder}/build"
             ],
             "problemMatcher": [
                 "$gcc"
