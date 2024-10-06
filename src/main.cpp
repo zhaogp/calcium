@@ -4,29 +4,18 @@
 #include <iostream>
 #include "binary_tree.h"
 #include "my_sqrt.h"
+#include "read_23r1.h"
 
 using namespace std;
 
 
 int main() {
-    // 1. junior 库
-    //   示例二叉树:
-    //       1
-    //      / \
-    //     2   3
-    //    / \
-    //   4   5
-    BinaryTree* root = new BinaryTree(1);
-    root->left = new BinaryTree(2);
-    root->right = new BinaryTree(3);
-    root->left->left = new BinaryTree(4);
-    root->left->right = new BinaryTree(5);
+    cout.flags(ios::fixed);
+    cout.precision(4);
 
-    recurisiveTree(root);
-    cout << "complete" << endl;
-
-    // 2. common 库
-    my_sqrt(2);
+    int a, b, c;
+    cin >> a >> b >> c;
+    func01(a, b, c);
 
     return 0;
 }

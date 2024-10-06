@@ -6,11 +6,13 @@
         "type": "cppdbg",
         "request": "launch",
         "program": "${workspaceRoot}/bin/calcium",
-        "args": ["-std=c++17"],
+        "args": [
+            "-std=c++17",
+        ],
         "stopAtEntry": false,
         "cwd": "${workspaceFolder}/bin",
         "environment": [],
-        "externalConsole": false,
+        "externalConsole": true,  // 打开系统终端作为调试窗口
         "MIMode": "lldb",
         "setupCommands": [
             {

@@ -6,6 +6,8 @@ set(SOURCE_FILES
     binary_tree.cpp
     static_const.h
     static_const.cpp
+    read_23r1.cpp
+    read_23r1.h
 )
 
 add_library(junior SHARED STATIC ${SOURCE_FILES})
