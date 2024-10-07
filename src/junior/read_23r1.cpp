@@ -88,14 +88,13 @@ int ap_find_miss(vector<int>& vp) {
     int left = 0, right = vp.size() - 1;
     while(left < right) {
         int mid = left + (right - left) / 2;
-        if (vp[mid] == mid + vp[0]) {  // 如果相等，说明被找的数在右半边
-            left = mid + 1;
-        } else {  // 否则被查找的数在左半边
+        if (vp[mid] == mid + vp[0]) {  // 如果相等，说明左半边是连续的，缺失的数在右半边
+            left = mid + 1;  // mid 计算过了，左指针移到下一位
+        } else {  // 否则被查找的数在左半边，包括 mid，所以右指针移到 mid 位置
             right = mid;
         }
     }
-    int rv = vp[0] + left;
-    cout << "缺失的数组元素是：" << rv << endl;
+    int rv = vp[0] + left;  // 如果是连续数组，left 指向最后一个元素，rv 就是最后一个元素
 
     return rv;
 
