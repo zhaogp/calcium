@@ -4,7 +4,8 @@ project(common C CXX)
 set(SOURCE_FILES
     my_sqrt.h
     my_sqrt.cpp
-
+    dynamic_program.h
+    dynamic_program.cpp
 )
 
 add_library(common SHARED STATIC ${SOURCE_FILES})
