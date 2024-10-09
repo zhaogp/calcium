@@ -1,7 +1,7 @@
 {
     "configurations": [
         {
-            "name": "Mac",
+            "name": "mac",
             "includePath": [
                 "${workspaceFolder}/**"
             ],
@@ -13,6 +13,18 @@
             "cppStandard": "c++17",
             "intelliSenseMode": "macos-clang-x64",
             "compilerPath": "/usr/bin/clang++"
+        },
+        {
+            "name": "win",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:/Program Files/boost_1_86_0"
+            ],
+            "defines": [],
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "windows-clang-x64",
+            "compilerPath": "C:/Program Files/mingw64/bin/clang++.exe"
         }
     ],
     "version": 4

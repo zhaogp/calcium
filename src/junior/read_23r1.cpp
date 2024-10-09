@@ -2,6 +2,7 @@
  * 23 年 CSP-J1，阅读题
  */
 #include<iostream>
+#include<vector>
 #include<cmath>
 #include "read_23r1.h"
 

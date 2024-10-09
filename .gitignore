@@ -9,3 +9,4 @@ output
 build
 3rdparty
 lib
+bin/calcium

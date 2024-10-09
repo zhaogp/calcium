@@ -2,6 +2,8 @@
     主入口文件
 */
 #include <iostream>
+#include<vector>
+
 #include "binary_tree.h"
 #include "my_sqrt.h"
 #include "read_23r1.h"

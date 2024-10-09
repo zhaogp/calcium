@@ -2,10 +2,23 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "calcium-build",
+            "label": "mac-build-calcium",
             "type": "shell",
-            // "command": "cd build; rm -rf ./*; cmake ..; make install",
-            "command": "cd build; cmake ..; make install",
+            "command": "cd build; rm -rf ./*; cmake ..; make install",
+            "args": [
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+        },
+        {
+            "label": "win-build-calcium",
+            "type": "shell",
+            "command": "cd build; Remove-Item -Path ./* -Recurse; cmake -G 'Unix Makefiles' ..; make install",
             "args": [
             ],
             "problemMatcher": [

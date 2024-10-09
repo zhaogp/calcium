@@ -12,9 +12,16 @@ set(CALCIUM_INSTALL_BIN_DIR ${PROJECT_SOURCE_DIR}/bin)
 set(CALCIUM_INSTALL_LIB_DIR ${PROJECT_SOURCE_DIR}/lib)
 
 # 4. 全部头文件路径
-set(BOOST_ROOT "/usr/local/Cellar/boost/1.86.0")
-find_package(Boost REQUIRED)
-include_directories(${Boost_INCLUDE_DIRS})
+if(APPLE)
+    set(BOOST_ROOT "/usr/local/Cellar/boost/1.86.0")
+endif()
+if(WIN32) 
+    set(BOOST_ROOT "C:/Program Files/boost_1_86_0")
+endif()
+# find_package(Boost REQUIRED)
+# include_directories(${Boost_INCLUDE_DIRS})
+include_directories(${BOOST_ROOT})
+
 include_directories(${CALCIUM_INSTALL_INCLUDE_DIR})
 include_directories(${PROJECT_SOURCE_DIR}/src/common)  # 公共模块
 include_directories(${PROJECT_SOURCE_DIR}/src/junior)  # CSP-J
