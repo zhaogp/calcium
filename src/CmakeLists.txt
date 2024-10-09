@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.30)
-project(calcium)
+project(main)
 
 # 加上指定项目是已编译模式构建的，不然断不住
 set(CMAKE_BUILD_TYPE Debug)

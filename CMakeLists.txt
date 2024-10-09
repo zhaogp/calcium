@@ -1,6 +1,6 @@
 # 1. 基础配置
 cmake_minimum_required(VERSION 3.30)
-project(Calcium VERSION 0.1)
+project(calcium VERSION 0.1)
 
 # 2. C++ 版本
 set(CMAKE_CXX_STANDARD 17)

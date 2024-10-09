@@ -18,7 +18,7 @@
         {
             "label": "win-build-calcium",
             "type": "shell",
-            "command": "cd build; Remove-Item -Path ./* -Recurse; cmake -G 'Unix Makefiles' ..; make install",
+            "command": "cd build ;Remove-Item -Path ./* -Recurse ;cmake -G 'Unix Makefiles' .. ;make install",
             "args": [
             ],
             "problemMatcher": [
