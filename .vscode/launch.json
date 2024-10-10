@@ -17,7 +17,7 @@
             "setupCommands": [
                 {
                     "description": "Enable pretty-printing for lldb",
-                    "text": "settings set target.prefer-binary false",
+                    "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
             ],
@@ -35,6 +35,13 @@
             "externalConsole": false,
             "MIMode": "gdb",
             "miDebuggerPath": "C:/Program Files/mingw64/bin/gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": false
+                }
+            ],
             "preLaunchTask": "win-build-calcium"
         }
     ]
