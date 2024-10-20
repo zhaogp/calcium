@@ -13,7 +13,7 @@ set(CALCIUM_INSTALL_LIB_DIR ${PROJECT_SOURCE_DIR}/lib)
 
 # 4. 全部头文件路径
 if(APPLE)
-    set(BOOST_ROOT "/usr/local/Cellar/boost/1.86.0")
+    set(BOOST_ROOT "/usr/local/Cellar/boost/1.86.0/include")
 endif()
 if(WIN32) 
     set(BOOST_ROOT "C:/Program Files/boost_1_86_0")
