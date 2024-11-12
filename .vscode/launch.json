@@ -35,7 +35,7 @@
             "MIMode": "lldb",
             "setupCommands": [
                 {
-                    "description": "Enable pretty-printing for lldb",
+                    "description": "输出 vector 向量的值",
                     "text": "-enable-pretty-printing",
                     "ignoreFailures": true
                 }
