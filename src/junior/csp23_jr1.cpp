@@ -4,11 +4,12 @@
 #include<iostream>
 #include<vector>
 #include<cmath>
-#include "read_23r1.h"
+#include "csp23_jr1.h"
 
 using namespace std;
 
 
+// 2.1 海伦公式
 double aa_heron_formula(double a, double b, double c) {
     /**
      * 三角形面积：海伦公式
@@ -21,7 +22,8 @@ double aa_heron_formula(double a, double b, double c) {
     return square;
 }
 
-int ml_common_substring(string x, string y){
+// 2.2 动态规划求两个字符串的最长子串
+int dp_common_substring(string x, string y){
     /**
      * 求两个字符串的最长公共字串长度，用二维数组实现
      */
@@ -49,6 +51,7 @@ int solve01(int n) {
     return n * n;
 }
 
+// 2.3 求整数 n 的所有因子的平方和
 int af_square_sum(int n) {
     /**
      * 求 n 的所有因子的平方和
@@ -76,12 +79,13 @@ bool func03(string x, string y) {
         return false;
     }
 
-    int temp = ml_common_substring(x + x, y); 
+    int temp = dp_common_substring(x + x, y); 
 
     return temp == y.size();
 }
 
-int ap_find_miss(vector<int>& vp) {
+// 3.1 二分查找等差数列中缺失的一个数
+int bs_find_miss(vector<int>& vp) {
     /**
      * 二分法查找
      * 查找等差数列中缺失的那一个
@@ -106,4 +110,40 @@ int demo(int dn, int n) {
     cout << dn << " 除以 " << n << " 的整数值为：" << rv << endl;
 
     return rv;
+}
+
+// 3.2 动态规划编辑距离
+int three_min(int x, int y, int z){
+    return min(min(x, y), z);
+}
+
+int dp_edit_distance(string str1, string str2) {
+    cout << "字符串一：" << str1 << endl;
+    cout << "字符串二：" << str2 << endl;
+
+    int m = str1.length();
+    int n = str2.length();
+
+    vector<vector<int>> dp(m + 1, vector<int>(n + 1));
+    
+    for (int i = 0; i <= m; i++){
+        for (int j = 0; j <= n; j++) {
+            if (i == 0) {
+                dp[i][j] = j;  // 将空字符串转换为 str2 的前 j 个字符所需要的操作数
+            } else if (j == 0) {
+                dp[i][j] = i;  // 将 str1 的前 i 个字符串转换为空字符串所需要的操作数
+            } else if (str1[i-1] == str2[j-1]) {
+                dp[i][j] = dp[i-1][j-1];  // 字符相同，不需要操作
+            } else {
+                dp[i][j] = three_min(
+                    dp[i-1][j] + 1,  // 删除操作
+                    dp[i][j-1] +1,  // 插入操作
+                    dp[i-1][j-1] + 1  // 替换操作
+                );
+            }
+        }
+    }
+    cout << "最终输出的动态规划数组：" << dp[m][n] << endl;
+
+    return dp[m][n];
 }
