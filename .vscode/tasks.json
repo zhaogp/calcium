@@ -2,6 +2,20 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "linux-build-calcium",
+            "type": "shell",
+            "command": "source /home/zhaoguoping/.bash_profile; cd ${workspaceFolder}/build; rm -rf ./*; cmake ..; make install",
+            "args": [
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+        },
+        {
             "label": "mac-build-calcium",
             "type": "shell",
             "command": "cd build; rm -rf ./*; cmake ..; make install",
