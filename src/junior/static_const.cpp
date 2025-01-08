@@ -1,6 +1,5 @@
 #include "static_const.h"
 
-
 int StaticConst::instanceCount = 0;  // 全局初始化类变量
 
 void StaticConst::display() {

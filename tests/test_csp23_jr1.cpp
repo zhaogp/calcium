@@ -5,11 +5,10 @@
 using namespace std;
 
 TEST(CspTest, Csp23jr1Test) {
-    string s1 = "abc";
-    string s2 = "dgcsba";
+    string s1 = "kitten";
+    string s2 = "sitting";
     int dep = dp_edit_distance(s1, s2);
-
-    EXPECT_EQ(dep, 6);
+    EXPECT_EQ(dep, 3);
 }
 
 int main(int argc, char **argv) {
