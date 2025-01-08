@@ -3,7 +3,7 @@
         {
             "name": "mac",
             "includePath": [
-                "${workspaceFolder}/**"
+                "c:/Users/guopi/jylink/calcium/**"
             ],
             "defines": [],
             "macFrameworkPath": [
@@ -12,7 +12,16 @@
             "cStandard": "c17",
             "cppStandard": "c++17",
             "intelliSenseMode": "macos-clang-x64",
-            "compilerPath": "/usr/bin/clang++"
+            "compilerPath": "/usr/bin/clang++",
+            "compilerPathInCppPropertiesJson": "/usr/bin/clang++",
+            "mergeConfigurations": false,
+            "browse": {
+                "path": [
+                    "c:/Users/guopi/jylink/calcium/**",
+                    "${workspaceFolder}"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            }
         },
         {
             "name": "win",
