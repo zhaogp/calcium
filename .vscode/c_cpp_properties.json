@@ -3,7 +3,9 @@
         {
             "name": "mac",
             "includePath": [
-                "c:/Users/guopi/jylink/calcium/**"
+                "${workspaceFolder}/**",
+                "/usr/local/Cellar/boost/1.86.0/include",
+                "/usr/local/Cellar/googletest/1.15.2/include"
             ],
             "defines": [],
             "macFrameworkPath": [
@@ -13,11 +15,9 @@
             "cppStandard": "c++17",
             "intelliSenseMode": "macos-clang-x64",
             "compilerPath": "/usr/bin/clang++",
-            "compilerPathInCppPropertiesJson": "/usr/bin/clang++",
             "mergeConfigurations": false,
             "browse": {
                 "path": [
-                    "c:/Users/guopi/jylink/calcium/**",
                     "${workspaceFolder}"
                 ],
                 "limitSymbolsToIncludedHeaders": true

@@ -13,12 +13,9 @@ using namespace std;
 
 
 int main() {
-    cout.flags(ios::fixed);
-    cout.precision(4);
-
-    vector<int> coins = {1, 4, 5};
-    int amount = 13;  // 返回值是缺失元素或最后一个元素
-    dp_minium_coins(coins, amount);
+    string s1 = "kitten";
+    string s2 = "sitting";
+    int dep = dp_edit_distance(s1, s2);
 
     return 0;
 }

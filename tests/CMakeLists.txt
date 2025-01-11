@@ -1,6 +1,5 @@
 ﻿# 包含Google Test
 find_package(GTest REQUIRED)
-include_directories("C:/Users/guopi/googletest-distribution/include")
 
 # 添加测试目标
 add_executable(csp23_jr1 test_csp23_jr1.cpp)
