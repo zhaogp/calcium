@@ -5,6 +5,7 @@
 #include<vector>
 #include<cmath>
 #include "csp23_jr1.h"
+#include<iomanip>
 
 using namespace std;
 
@@ -90,6 +91,12 @@ int bs_find_miss(vector<int>& vp) {
      * 二分法查找
      * 查找等差数列中缺失的那一个
      */
+    cout << "要查找的等差数列是：";
+    for (int i : vp){
+        cout << i << " ";
+    }
+    cout << endl;
+
     int left = 0, right = vp.size() - 1;
     while(left < right) {
         int mid = left + (right - left) / 2;
@@ -100,9 +107,9 @@ int bs_find_miss(vector<int>& vp) {
         }
     }
     int rv = vp[0] + left;  // 如果是连续数组，left 指向最后一个元素，rv 就是最后一个元素
+    cout << "缺少的数是：" << rv << endl;
 
     return rv;
-
 }
 
 int demo(int dn, int n) {
@@ -143,7 +150,15 @@ int dp_edit_distance(string str1, string str2) {
             }
         }
     }
-    cout << "最终输出的动态规划数组：" << dp[m][n] << endl;
+    cout << "最终输出的动态规划数组：" << endl;
+    for (int i=0 ; i<=m; i++){
+        for (int j=0; j<=n; j++){
+            cout << setw(5) << dp[i][j];
+        }
+        cout << endl;
+    }
+    int rv = dp[m][n];
+    cout << "最少操作次数是：" << rv;
 
-    return dp[m][n];
+    return rv;
 }
