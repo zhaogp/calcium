@@ -20,11 +20,12 @@ if(WIN32)
     set(BOOST_ROOT "C:/Program Files/boost_1_86_0")
     set(GTEST_ROOT "C:/Users/guopi/googletest-distribution")
 endif()
-# find_package(Boost REQUIRED)
-# include_directories(${Boost_INCLUDE_DIRS})
+
+# 三方库
 include_directories(${BOOST_ROOT})
 include_directories(${GTEST_ROOT})
 
+# 本项目库
 include_directories(${CALCIUM_INSTALL_INCLUDE_DIR})
 include_directories(${PROJECT_SOURCE_DIR}/src/common)  # 公共模块
 include_directories(${PROJECT_SOURCE_DIR}/src/junior)  # CSP-J
