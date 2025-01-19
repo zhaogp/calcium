@@ -8,3 +8,4 @@ using namespace std;
 
 
 int dp_minium_coins(vector<int>& coins, int amount);
+void hanoi(int n, string from, string to, string aux);

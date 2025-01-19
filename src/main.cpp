@@ -13,9 +13,7 @@ using namespace std;
 
 
 int main() {
-    string s1 = "kitten";
-    string s2 = "sitting";
-    int dep = dp_edit_distance(s1, s2);
+    hanoi(3, "原始柱子", "目标柱子", "中间柱子");
 
     return 0;
 }

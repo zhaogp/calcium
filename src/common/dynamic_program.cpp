@@ -19,3 +19,15 @@ int dp_minium_coins(vector<int>& coins, int amount) {
 
     return rv;
 }
+
+// 汉诺塔
+void hanoi(int n, string from, string to, string aux) {
+    if (n == 1) {
+        cout << "1#盘子：" << from << " -> " << to << endl;
+        return;
+    }
+
+    hanoi(n-1, from, aux, to);
+    cout << n << "#盘子 " << from << " -> " << to << endl;
+    hanoi(n-1, aux, to, from);
+}
