@@ -1,5 +1,8 @@
-#include "dynamic_program.h"
+#include <iostream>
+#include <vector>
+#include <string>
 
+using namespace std;
 
 // 经典分硬币
 int dp_minium_coins(vector<int>& coins, int amount) {
@@ -21,13 +24,23 @@ int dp_minium_coins(vector<int>& coins, int amount) {
 }
 
 // 汉诺塔
-void hanoi(int n, string from, string to, string aux) {
+void hanoi(int n, string from, string to, string aux, int& move_count) {
     if (n == 1) {
         cout << "1#盘子：" << from << " -> " << to << endl;
+        move_count++;
         return;
     }
 
-    hanoi(n-1, from, aux, to);
+    hanoi(n-1, from, aux, to, move_count);
     cout << n << "#盘子 " << from << " -> " << to << endl;
-    hanoi(n-1, aux, to, from);
+    move_count++;
+    hanoi(n-1, aux, to, from, move_count);
+}
+
+int hanoi_wrapper(int n, string from, string to, string aux) {
+    int move_count = 0;
+    hanoi(n, from, to, aux, move_count);
+    cout << "总共移动次数: " << move_count << endl;
+    
+    return move_count;
 }

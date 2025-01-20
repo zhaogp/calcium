@@ -28,7 +28,8 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "C:/Program Files/boost_1_86_0",
-                "C:/Users/guopi/googletest-distribution/include"
+                "C:/Users/guopi/googletest-distribution/include",
+                "${workspaceFolder}/src/common"
             ],
             "defines": [],
             "cStandard": "c17",

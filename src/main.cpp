@@ -13,7 +13,7 @@ using namespace std;
 
 
 int main() {
-    hanoi(3, "原始柱子", "目标柱子", "中间柱子");
+    hanoi_wrapper(5, "原始柱子", "目标柱子", "中间柱子");
 
     return 0;
 }
