@@ -13,7 +13,7 @@ using namespace std;
 
 
 int main() {
-    hanoi_wrapper(5, "原始柱子", "目标柱子", "中间柱子");
+    int n = dp_common_substring("kitten", "sitting");
 
     return 0;
 }

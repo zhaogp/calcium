@@ -23,17 +23,15 @@ double aa_heron_formula(double a, double b, double c) {
     return square;
 }
 
-// 2.2 动态规划求两个字符串的最长子串
+// 2.2 动态规划求两个字符串的最长子序列(不要求连续)
 int dp_common_substring(string x, string y){
-    /**
-     * 求两个字符串的最长公共字串长度，用二维数组实现
-     */
+
     cout << "输入的字符串是：" << x << " 和" << y << endl;
     int m = x.size();
     int n = y.size();
-    vector<vector<int>> v(m+1,vector<int>(n+1, 0)); 
+    vector<vector<int>> v(m+1, vector<int>(n+1, 0)); 
     for(int i=1; i<=m; i++){
-        for(int j = 1; j <= n; j++) {
+        for(int j=1; j <= n; j++) {
             if(x[i-1] == y[j-1]) {
                 v[i][j] = v[i-1][j-1] + 1;
             } else {

@@ -6,10 +6,33 @@
 
 using namespace std;
 
-TEST(Csp23Test, BS3101) {
+TEST(Csp23Test, Af2201) {
+    int n = dp_common_substring("kitten", "sitting");
+    EXPECT_EQ(n, 3);
+}
+
+TEST(Csp23Test, Af2301) {
+    int n = 5;
+    int afs = af_square_sum(n);
+    EXPECT_EQ(afs, 26);
+}
+
+TEST(Csp23Test, Af2302) {
+    int n = 12;
+    int afs = af_square_sum(n);
+    EXPECT_EQ(afs, 210);
+}
+              
+TEST(Csp23Test, Bs3101) {
     vector<int> v = {5, 6, 7, 9};
     int miss = bs_find_miss(v);
     EXPECT_EQ(miss, 8);
+}
+
+TEST(Csp23Test, Bs3102) {
+    vector<int> v = {1, 2, 3, 4, 5, 6, 7, 8, 10};
+    int miss = bs_find_miss(v);
+    EXPECT_EQ(miss, 9);
 }
 
 TEST(Csp23Test, Dp3201) {
@@ -27,8 +50,8 @@ TEST(Csp23Test, Dp3202){
 }
 
 TEST(CommonTest, Hanoi) {
-    int move_count = hanoi_wrapper(5, "原始柱子", "目标柱子", "中间柱子");
-    EXPECT_EQ(move_count, 31);
+    int move_count = hanoi_wrapper(3, "原始柱子", "目标柱子", "中间柱子");
+    EXPECT_EQ(move_count, 7);
 }
 
 int main(int argc, char **argv) {
