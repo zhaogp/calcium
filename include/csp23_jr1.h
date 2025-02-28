@@ -1,10 +1,12 @@
 #include <string>
+#include <vector>
 
 using namespace std;
 
 
 double aa_heron_formula(double a, double b, double c);
-int dp_common_substring(string x, string y);
+int longest_common_subsequence(string x, string y);
+int longest_common_substring(string x, string y);
 bool func03(string x, string y);
 int solve01(int n);
 int af_square_sum(int n);

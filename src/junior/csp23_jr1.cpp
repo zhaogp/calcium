@@ -4,11 +4,10 @@
 #include<iostream>
 #include<vector>
 #include<cmath>
-#include "csp23_jr1.h"
 #include<iomanip>
+#include<algorithm>
 
 using namespace std;
-
 
 // 2.1 海伦公式
 double aa_heron_formula(double a, double b, double c) {
@@ -23,26 +22,102 @@ double aa_heron_formula(double a, double b, double c) {
     return square;
 }
 
-// 2.2 动态规划求两个字符串的最长子序列(不要求连续)
-int dp_common_substring(string x, string y){
+// 阅读程序，第二小题
+int longest_common_subsequence(string str01, string str02){
+    /**
+     * 动态规划求两个字符串的最长子序列(不是子串，不要求连续)
+     */
+    cout << "输入的字符串01是：" << str01 << endl;
+    cout << "输入的字符串02是：" << str02 << endl;
+    int m = str01.size();
+    int n = str02.size();
 
-    cout << "输入的字符串是：" << x << " 和" << y << endl;
-    int m = x.size();
-    int n = y.size();
     vector<vector<int>> v(m+1, vector<int>(n+1, 0)); 
     for(int i=1; i<=m; i++){
         for(int j=1; j <= n; j++) {
-            if(x[i-1] == y[j-1]) {
+            if(str01[i-1] == str02[j-1]) {
                 v[i][j] = v[i-1][j-1] + 1;
             } else {
                 v[i][j] = max(v[i-1][j], v[i][j-1]);
             }
         }
     }
-    int rv = v[m][n];
-    cout << "返回值是：" << rv << endl;
 
-    return rv;
+    cout << "构造的动态规划数组：" << endl;
+    for(int i=0; i<=m; i++){
+        for(int j=0; j<=n; j++){
+            cout << setw(5) << v[i][j];
+        }
+        cout << endl;
+    }
+
+    int i = m, j = n;
+    string lcs;
+    while(i > 0 && j > 0) {
+        if(str01[i-1] == str02[j-1]) {
+            // cout << str01[i-1];
+            lcs = str01[i-1] + lcs; // 从后往前加, 所以下面不需要逆序了
+            i--;
+            j--;
+        } else if(v[i-1][j] > v[i][j-1]) {
+            i--;
+        } else {
+            j--;
+        }
+    }
+    // reverse(lcs.begin(), lcs.end());
+    cout << "最长子序列是：" << lcs << endl;
+    cout << "长度：" << v[m][n] << endl;
+
+    return v[m][n];
+}
+
+int longest_common_substring(string str01, string str02){
+    /**
+     * 动态规划求两个字符串的最长公共子串(要求连续)
+     */
+    cout << "输入的字符串01是：" << str01 << endl;
+    cout << "输入的字符串02是：" << str02 << endl;
+    int m = str01.size();
+    int n = str02.size();
+
+    // 处理空字符串情况
+    if (m == 0 || n == 0) {
+        cout << "最长公共子串：\"\"" << endl;
+        cout << "长度：0" << endl;
+        return 0;
+    }
+
+    vector<vector<int>> v(m+1, vector<int>(n+1, 0)); 
+    int max_len = 0;
+    int end_index = 0;
+    for(int i=1; i<=m; i++) {
+        for(int j=1; j <= n; j++) {
+            if(str01[i-1] == str02[j-1]) {
+                v[i][j] = v[i-1][j-1] + 1;
+                if (v[i][j] > max_len) {
+                    max_len = v[i][j];
+                    end_index = i;
+                }
+            } else {
+                v[i][j] = 0;
+            }
+        }
+    }
+
+    // 输出动态规划数组
+    cout << "构造的动态规划数组：" << endl;
+    for(int i=0; i<=m; i++){
+        for(int j=0; j<=n; j++){
+            cout << setw(5) << v[i][j];
+        }
+        cout << endl;
+    }
+
+    cout << "最长公共子串：" << str01.substr(end_index - max_len, max_len) << endl;
+    cout << "长度：" << max_len << endl;
+
+    return max_len;
 }
 
 // 求平方
@@ -72,13 +147,12 @@ int af_square_sum(int n) {
     return sum;
 }
 
-
 bool func03(string x, string y) {
     if(x.size() != y.size()) {
         return false;
     }
 
-    int temp = dp_common_substring(x + x, y); 
+    int temp = longest_common_subsequence(x + x, y); 
 
     return temp == y.size();
 }
@@ -134,16 +208,16 @@ int dp_edit_distance(string str1, string str2) {
     for (int i = 0; i <= m; i++){
         for (int j = 0; j <= n; j++) {
             if (i == 0) {
-                dp[i][j] = j;  // 将空字符串转换为 str2 的前 j 个字符所需要的操作数
+                dp[i][j] = j;  // 第一行就是 0 1 2 ...
             } else if (j == 0) {
-                dp[i][j] = i;  // 将 str1 的前 i 个字符串转换为空字符串所需要的操作数
+                dp[i][j] = i;  // 第一列就是 0 1 2 ...
             } else if (str1[i-1] == str2[j-1]) {
-                dp[i][j] = dp[i-1][j-1];  // 字符相同，不需要操作
+                dp[i][j] = dp[i-1][j-1];  // 对应位置的字符相同，回对角线的上一个位置
             } else {
                 dp[i][j] = three_min(
-                    dp[i-1][j] + 1,  // 删除操作
-                    dp[i][j-1] +1,  // 插入操作
-                    dp[i-1][j-1] + 1  // 替换操作
+                    dp[i-1][j] + 1,  // 从左往右是新增操作，新增 str2 中独有的字符
+                    dp[i][j-1] +1,  // 从上往下是删除操作，删除 str1 中多余的字符
+                    dp[i-1][j-1] + 1  // 替换操作，从左上角往右下角加一
                 );
             }
         }
@@ -156,7 +230,7 @@ int dp_edit_distance(string str1, string str2) {
         cout << endl;
     }
     int rv = dp[m][n];
-    cout << "最少操作次数是：" << rv;
+    cout << "最少操作次数是：" << rv << endl;
 
     return rv;
 }

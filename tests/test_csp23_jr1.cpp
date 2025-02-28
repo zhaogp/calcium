@@ -7,8 +7,33 @@
 using namespace std;
 
 TEST(Csp23Test, Af2201) {
-    int n = dp_common_substring("kitten", "sitting");
+    int n = longest_common_subsequence("kitten", "sitting");
+    EXPECT_EQ(n, 4);
+}
+
+TEST(Csp23Test, Af2202) {
+    int n = longest_common_subsequence("horse", "ros");
+    EXPECT_EQ(n, 2);
+}
+
+TEST(Csp23Test, Af2203) {
+    int n = longest_common_substring("kitten", "sitting");
     EXPECT_EQ(n, 3);
+}
+
+TEST(Csp23Test, Af2204) {
+    int n = longest_common_substring("HELLO", "HELLO");
+    EXPECT_EQ(n, 5);
+}
+
+TEST(Csp23Test, Af2205) {
+    int n = longest_common_substring("abc", "def");
+    EXPECT_EQ(n, 0);
+}
+
+TEST(Csp23Test, Af2206) {
+    int n = longest_common_substring("abc", "");
+    EXPECT_EQ(n, 0);
 }
 
 TEST(Csp23Test, Af2301) {

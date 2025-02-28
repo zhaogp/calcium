@@ -13,7 +13,7 @@ using namespace std;
 
 
 int main() {
-    int n = dp_common_substring("kitten", "sitting");
+    longest_common_subsequence("kitten", "sitting");
 
     return 0;
 }

@@ -29,13 +29,13 @@
                 "${workspaceFolder}/**",
                 "C:/Program Files/boost_1_86_0",
                 "C:/Users/guopi/googletest-distribution/include",
-                "${workspaceFolder}/src/common"
+                "C:/Program Files/mingw64/include"
             ],
             "defines": [],
             "cStandard": "c17",
             "cppStandard": "c++17",
-            "intelliSenseMode": "windows-clang-x64",
-            "compilerPath": "C:/Program Files/mingw64/bin/clang++.exe"
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "C:/Program Files/mingw64/bin/g++.exe"
         }
     ],
     "version": 4
