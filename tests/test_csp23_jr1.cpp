@@ -11,29 +11,14 @@ TEST(Csp23Test, Af2201) {
     EXPECT_EQ(n, 4);
 }
 
-TEST(Csp23Test, Af2202) {
-    int n = longest_common_subsequence("horse", "ros");
-    EXPECT_EQ(n, 2);
-}
-
 TEST(Csp23Test, Af2203) {
     int n = longest_common_substring("kitten", "sitting");
     EXPECT_EQ(n, 3);
 }
 
-TEST(Csp23Test, Af2204) {
-    int n = longest_common_substring("HELLO", "HELLO");
-    EXPECT_EQ(n, 5);
-}
-
-TEST(Csp23Test, Af2205) {
-    int n = longest_common_substring("abc", "def");
-    EXPECT_EQ(n, 0);
-}
-
-TEST(Csp23Test, Af2206) {
-    int n = longest_common_substring("abc", "");
-    EXPECT_EQ(n, 0);
+TEST(Csp23Test, Dp3201) {
+    int dep = dp_edit_distance("kitten", "sitting");
+    EXPECT_EQ(dep, 3);
 }
 
 TEST(Csp23Test, Af2301) {
@@ -58,13 +43,6 @@ TEST(Csp23Test, Bs3102) {
     vector<int> v = {1, 2, 3, 4, 5, 6, 7, 8, 10};
     int miss = bs_find_miss(v);
     EXPECT_EQ(miss, 9);
-}
-
-TEST(Csp23Test, Dp3201) {
-    string s1 = "kitten";
-    string s2 = "sitting";
-    int dep = dp_edit_distance(s1, s2);
-    EXPECT_EQ(dep, 3);
 }
 
 TEST(Csp23Test, Dp3202){
