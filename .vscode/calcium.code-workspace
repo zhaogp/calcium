@@ -58,6 +58,12 @@
             "xstring": "cpp",
             "xtr1common": "cpp",
             "xutility": "cpp"
-        }
+        },
+        "editor.fontSize": 16
+    },
+    "extensions": {
+        "recommendations": [
+            "ms-vscode.cpptools"
+        ]
     }
 }

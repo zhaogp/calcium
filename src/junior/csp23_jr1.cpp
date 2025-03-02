@@ -263,9 +263,70 @@ int dp_edit_distance(string str1, string str2) {
         }
         cout << endl;
     }
-    int rv = dp[m][n];
-    cout << "最少操作次数是：" << rv << endl;
+    cout << "最少操作次数是：" << dp[m][n] << endl;
 
-    return rv;
+    return dp[m][n];
 }
-       
+
+int dp_knapsack(int W, vector<int> wt, vector<int> val) {
+    /**
+     * 动态规划求背包问题
+     * 1. 定义状态
+     *     dp[i][j] 表示前 i 个物品，背包容量为 j 时的最大价值
+     * 2. 状态转移方程
+     *     dp[i][j] = max(dp[i-1][j], dp[i-1][j-wt[i]] + val[i])    
+     *     dp[i-1][j]                       表示不放入第 i 个物品时的价值
+     *     dp[i-1][j-wt[i]] + val[i]        表示放入第 i 个物品时的价值
+     * 3. 初始化
+     *     dp[0][j] = 0     dp[0][j] 表示没有物品时，价值为 0
+     *     dp[i][0] = 0     dp[i][0] 表示背包容量为 0 时，价值为 0
+     * 4. 结果
+     *     dp[n][W]
+     * 
+     *  W 是背包容量，wt 是物品重量列表，val 是物品价值列表
+     */
+    int n = wt.size();
+    vector<vector<int>> dp(n+1, vector<int>(W+1, 0));
+
+    for (int i = 1; i <= n; i++) {
+        for (int w = 1; w <= W; w++) {
+            if (w < wt[i-1]) {  // w 是当前背包容量，wt[i-1] 是第 i 个物品的重量
+                // 容量不够，不放入第 i 个物品
+                dp[i][w] = dp[i-1][w];
+            } else {
+                // 容量够，可以放入第 i 个物品，但是要比较放入和不放入的价值
+                dp[i][w] = max(dp[i-1][w], dp[i-1][w-wt[i-1]] + val[i-1]);
+            }
+        }
+    }
+
+    cout << "最终输出的动态规划数组：" << endl;
+    for (int i=0 ; i<=n; i++){
+        for (int j=0; j<=W; j++){
+            cout << setw(5) << dp[i][j];
+        }
+        cout << endl;
+    }
+
+    // 回溯放入的物品
+    int i = n, w = W;
+    vector<int> items;
+    while (i > 0 && w > 0) {
+        if (dp[i][w] == dp[i-1][w]) {
+            i--;
+        } else {
+            items.push_back(i);
+            w -= wt[i-1];
+            i--;
+        }
+    }
+    reverse(items.begin(), items.end());
+
+    cout << "放入的物品是：";
+    for (int i : items) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    return dp[n][W];
+}

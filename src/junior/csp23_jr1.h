@@ -3,7 +3,6 @@
 
 using namespace std;
 
-
 double aa_heron_formula(double a, double b, double c);
 int longest_common_subsequence(string x, string y);
 int longest_common_substring(string x, string y);
@@ -13,3 +12,4 @@ int af_square_sum(int n);
 int bs_find_miss(vector<int>& vp);
 int demo(int x, int y);
 int dp_edit_distance(string s1, string s2);
+int dp_knapsack(int W, vector<int> wt, vector<int> val);

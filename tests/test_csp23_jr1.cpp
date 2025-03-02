@@ -21,6 +21,18 @@ TEST(Csp23Test, Dp3201) {
     EXPECT_EQ(dep, 3);
 }
 
+TEST(Csp23Test, Dp3202){
+    string s1 = "horse";
+    string s2 = "ros";
+    int dep = dp_edit_distance(s1, s2);
+    EXPECT_EQ(dep, 3);
+}
+
+TEST(Csp23Test, Dp3203) {
+    int dep = dp_knapsack(10, {2, 3, 4, 5, 9}, {3, 4, 5, 8, 10});
+    EXPECT_EQ(dep, 15);
+}
+
 TEST(Csp23Test, Af2301) {
     int n = 5;
     int afs = af_square_sum(n);
@@ -43,13 +55,6 @@ TEST(Csp23Test, Bs3102) {
     vector<int> v = {1, 2, 3, 4, 5, 6, 7, 8, 10};
     int miss = bs_find_miss(v);
     EXPECT_EQ(miss, 9);
-}
-
-TEST(Csp23Test, Dp3202){
-    string s1 = "horse";
-    string s2 = "ros";
-    int dep = dp_edit_distance(s1, s2);
-    EXPECT_EQ(dep, 3);
 }
 
 TEST(CommonTest, Hanoi) {
