@@ -60,11 +60,17 @@
             "xtr1common": "cpp",
             "xutility": "cpp"
         },
-        "editor.fontSize": 16
+        "editor.fontSize": 16,
+        "C_Cpp.default.compilerPath": "C:/Program Files/mingw64/bin/g++.exe",
+        "C_Cpp.default.intelliSenseMode": "gcc-x64",
+        "C_Cpp.default.cppStandard": "c++17",
+        "C_Cpp.default.cStandard": "c17",
+        "C_Cpp.default.configuration": "win",
+        "C_Cpp.logging.level": "Information"
     },
     "extensions": {
         "recommendations": [
             "ms-vscode.cpptools"
         ]
-    }
+    },
 }

@@ -1,6 +1,22 @@
 {
     "configurations": [
         {
+            "name": "win",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "C:/Program Files/boost_1_86_0",
+                "C:/Users/guopi/googletest-distribution/include",
+                "C:/Users/guopi/googletest-distribution/lib",
+                "C:/Program Files/mingw64/include",
+                "C:/Users/guopi/jylink/calcium/include"
+            ],
+            "defines": [],
+            "compilerPath": "C:/Program Files/mingw64/bin/g++.exe",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-x64"
+        },
+        {
             "name": "mac",
             "includePath": [
                 "${workspaceFolder}/**",
@@ -22,21 +38,6 @@
                 ],
                 "limitSymbolsToIncludedHeaders": true
             }
-        },
-        {
-            "name": "win",
-            "includePath": [
-                "${workspaceFolder}/**",
-                "C:/Program Files/boost_1_86_0",
-                "C:/Users/guopi/googletest-distribution/include",
-                "C:/Users/guopi/googletest-distribution/lib",
-                "C:/Program Files/mingw64/include"
-            ],
-            "defines": [],
-            "cStandard": "c17",
-            "cppStandard": "c++17",
-            "intelliSenseMode": "gcc-x64",
-            "compilerPath": "C:/Program Files/mingw64/bin/g++.exe"
         }
     ],
     "version": 4

@@ -22,15 +22,23 @@ TEST(Csp23Test, Dp3201) {
 }
 
 TEST(Csp23Test, Dp3202){
-    string s1 = "horse";
-    string s2 = "ros";
-    int dep = dp_edit_distance(s1, s2);
+    int dep = dp_edit_distance("horse", "ros");
     EXPECT_EQ(dep, 3);
 }
 
 TEST(Csp23Test, Dp3203) {
     int dep = dp_knapsack(10, {2, 3, 4, 5, 9}, {3, 4, 5, 8, 10});
     EXPECT_EQ(dep, 15);
+}
+
+TEST(Csp23Test, Dp3204) {
+    int dep = dp_knapsack(14, {7, 2, 6, 3, 5}, {21, 18, 9, 15, 6});
+    EXPECT_EQ(dep, 54);
+}
+
+TEST(Csp23Test, Dp3205) {
+    int n = dp_coin_change({1, 2, 5}, 11);
+    EXPECT_EQ(n, 3);
 }
 
 TEST(Csp23Test, Af2301) {

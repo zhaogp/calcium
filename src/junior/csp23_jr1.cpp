@@ -6,6 +6,7 @@
 #include<cmath>
 #include<iomanip>
 #include<algorithm>
+#include "csp23_jr1.h"
 
 using namespace std;
 
@@ -241,18 +242,18 @@ int dp_edit_distance(string str1, string str2) {
     
     for (int i = 0; i <= m; i++){
         for (int j = 0; j <= n; j++) {
+            // str01 为空，编辑距离就是 str02 的长度，全部是新增操作
             if (i == 0) {
-                dp[i][j] = j;  // 第一行就是 0 1 2 ...
+                dp[i][j] = j;  
+            // str02 为空，编辑距离就是 str01 的长度，全部是删除操作
             } else if (j == 0) {
-                dp[i][j] = i;  // 第一列就是 0 1 2 ...
+                dp[i][j] = i;  
+            // 相同，对角线平移
             } else if (str1[i-1] == str2[j-1]) {
-                dp[i][j] = dp[i-1][j-1];  // 对应位置的字符相同，回对角线的上一个位置
+                dp[i][j] = dp[i-1][j-1];  
+            // 不同，取周围最小值加一，也就是从插入、删除、替换中选一个操作
             } else {
-                dp[i][j] = three_min(
-                    dp[i-1][j] + 1,  // 从左往右是新增操作，新增 str2 中独有的字符
-                    dp[i][j-1] +1,  // 从上往下是删除操作，删除 str1 中多余的字符
-                    dp[i-1][j-1] + 1  // 替换操作，从左上角往右下角加一
-                );
+                dp[i][j] = three_min(dp[i-1][j], dp[i][j-1], dp[i-1][j-1]) + 1;
             }
         }
     }
@@ -271,15 +272,18 @@ int dp_edit_distance(string str1, string str2) {
 int dp_knapsack(int W, vector<int> wt, vector<int> val) {
     /**
      * 动态规划求背包问题
+
      * 1. 定义状态
-     *     dp[i][j] 表示前 i 个物品，背包容量为 j 时的最大价值
+     *   dp[i][j] 表示前 i 个物品，背包容量为 j 时的最大价值
+
      * 2. 状态转移方程
-     *     dp[i][j] = max(dp[i-1][j], dp[i-1][j-wt[i]] + val[i])    
-     *     dp[i-1][j]                       表示不放入第 i 个物品时的价值
-     *     dp[i-1][j-wt[i]] + val[i]        表示放入第 i 个物品时的价值
+     *   wt[i] > w  -->  dp[i][j] = dp[i-1][j]                                      装不下 -> 上值下移
+     *   wt[i] <= w  -->  dp[i][j] = max(dp[i-1][j], dp[i-1][j-wt[i]] + val[i])     装得下 -> 上上取大    
+
      * 3. 初始化
-     *     dp[0][j] = 0     dp[0][j] 表示没有物品时，价值为 0
-     *     dp[i][0] = 0     dp[i][0] 表示背包容量为 0 时，价值为 0
+     *   dp[0][j] = 0     第一行，没有物品时价值为 0
+     *   dp[i][0] = 0     第一列，背包容量为 0 时价值也为 0
+
      * 4. 结果
      *     dp[n][W]
      * 
@@ -290,17 +294,28 @@ int dp_knapsack(int W, vector<int> wt, vector<int> val) {
 
     for (int i = 1; i <= n; i++) {
         for (int w = 1; w <= W; w++) {
-            if (w < wt[i-1]) {  // w 是当前背包容量，wt[i-1] 是第 i 个物品的重量
-                // 容量不够，不放入第 i 个物品
+            // 容量不够，不放入第 i 个物品
+            if (w < wt[i-1]) {
                 dp[i][w] = dp[i-1][w];
+            // 容量够，可以放入第 i 个物品，但是要比较放入和不放入的价值
             } else {
-                // 容量够，可以放入第 i 个物品，但是要比较放入和不放入的价值
                 dp[i][w] = max(dp[i-1][w], dp[i-1][w-wt[i-1]] + val[i-1]);
             }
         }
     }
 
-    cout << "最终输出的动态规划数组：" << endl;
+    cout << "重量列表：";
+    for (int i : wt) {
+        cout << i << " ";
+    }
+    cout << endl;
+    cout << "价值列表：";
+    for (int i : val) {
+        cout << i << " ";
+    }
+    cout << endl;
+    cout << "背包容量：" << W << endl;
+    cout << "动态规划数组：" << endl;
     for (int i=0 ; i<=n; i++){
         for (int j=0; j<=W; j++){
             cout << setw(5) << dp[i][j];
@@ -329,4 +344,72 @@ int dp_knapsack(int W, vector<int> wt, vector<int> val) {
     cout << endl;
 
     return dp[n][W];
+}
+
+int dp_coin_change(vector<int> coins, int amount) {
+    /**
+     * 动态规划求硬币找零问题
+
+     * 1. 定义状态
+     *   dp[i] 表示凑齐 i 元的最少硬币数
+
+     * 2. 状态转移方程
+     *   dp[i] = min(dp[i], dp[i - coin] + 1)
+
+     * 3. 初始化
+     *   dp[0] = 0，dp[i] = amount + 1，表示最多需要 amount 枚硬币
+
+     * 4. 结果
+     *   dp[amount]
+     */
+
+    // 初始化一个 amount+1 大小的数组，全部初始化为 amount+1
+    vector<int> dp(amount+1, amount+1);
+    // 第一个元素为 0
+    dp[0] = 0;
+
+    for(int i = 1; i <= amount; i++) {
+        for (const int coin: coins) {
+            if (i >= coin) {
+                dp[i] = min(dp[i], dp[i - coin] + 1);
+            }
+        }
+    }
+
+    // 输出动态规划数组
+    cout << "构造的动态规划数组：" << endl;
+    for(int i=0; i<=amount; i++){
+        cout << setw(5) << dp[i];
+    }
+    cout << endl;
+
+    // 输出全部可选硬币
+    cout << "可选的硬币是：";
+    for (int i : coins) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    // 输出选择的硬币
+    int i = amount;
+    vector<int> selected_coins;
+    while (i > 0) {
+        for (const int coin: coins) {
+            if (i >= coin && dp[i] == dp[i - coin] + 1) {
+                selected_coins.push_back(coin);
+                i -= coin;
+                break;
+            }
+        }
+    }
+    cout << "选择的硬币是：";
+    for (int i : selected_coins) {
+        cout << i << " ";
+    }
+    cout << endl;
+
+    int rv = dp[amount] > amount ? -1 : dp[amount];
+    cout << "凑齐 " << amount << " 元，" << "最少需要 " << dp[amount] << " 枚硬币" << endl;
+
+    return dp[amount];
 }

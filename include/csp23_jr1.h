@@ -13,3 +13,4 @@ int bs_find_miss(vector<int>& vp);
 int demo(int x, int y);
 int dp_edit_distance(string s1, string s2);
 int dp_knapsack(int W, vector<int> wt, vector<int> val);
+int dp_coin_change(vector<int> coins, int amount);
