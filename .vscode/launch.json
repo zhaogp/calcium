@@ -43,7 +43,7 @@
             "preLaunchTask": "mac-build-calcium"
         },
         {
-            "name": "win-debug",
+            "name": "win-build-run",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceRoot}/bin/calcium.exe",
@@ -58,10 +58,71 @@
                 {
                     "description": "Enable pretty-printing for gdb",
                     "text": "-enable-pretty-printing",
-                    "ignoreFailures": false
+                    "ignoreFailures": true
                 }
             ],
             "preLaunchTask": "win-build-calcium"
-        }
+        },
+        {
+            "name": "win-only-run",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/bin/calcium.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/bin",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:/Program Files/mingw64/bin/gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+        },
+        {
+            "name": "win-build-test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/build/tests/test_calcium.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/build/tests",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:/Program Files/mingw64/bin/gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+            "preLaunchTask": "win-build-calcium"
+        },
+        {
+            "name": "win-only-test",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceRoot}/build/tests/test_calcium.exe",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/build/tests",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "miDebuggerPath": "C:/Program Files/mingw64/bin/gdb.exe",
+            "setupCommands": [
+                {
+                    "description": "Enable pretty-printing for gdb",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ],
+        },
     ]
 }

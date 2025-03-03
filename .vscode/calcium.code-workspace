@@ -9,6 +9,7 @@
 	],
     "settings": {
         "files.associations": {
+            "*.json": "json",
             "atomic": "cpp",
             "bit": "cpp",
             "cctype": "cpp",

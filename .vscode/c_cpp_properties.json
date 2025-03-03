@@ -29,6 +29,7 @@
                 "${workspaceFolder}/**",
                 "C:/Program Files/boost_1_86_0",
                 "C:/Users/guopi/googletest-distribution/include",
+                "C:/Users/guopi/googletest-distribution/lib",
                 "C:/Program Files/mingw64/include"
             ],
             "defines": [],
