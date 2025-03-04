@@ -11,14 +11,20 @@
 using namespace std;
 
 // 2.1 海伦公式
-double aa_heron_formula(double a, double b, double c) {
+double heron_formula(double a, double b, double c) {
     /**
      * 三角形面积：海伦公式
      */
+    cout.flags(ios::fixed);
+    cout.precision(4);
     cout << "求三角形面积，三边长分别是：" << a << " " << b << " " << c << endl;
     double s = (a + b + c) / 2;
     double square = sqrt(s * (s-a) * (s-b) * (s-c));
     cout << "求出的面积是：" << square << endl;
+    
+    // 对 square 取4位小数
+    double factor = pow(10, 4);
+    square = round(square * factor) / factor;
 
     return square;
 }
@@ -180,7 +186,7 @@ bool func03(string x, string y) {
     return temp == y.size();
 }
 
-// 3.1 二分查找等差数列中缺失的一个数
+// 3.1 二分查找
 int bs_find_miss(vector<int>& vp) {
     /**
      * 二分法查找
@@ -195,13 +201,15 @@ int bs_find_miss(vector<int>& vp) {
     int left = 0, right = vp.size() - 1;
     while(left < right) {
         int mid = left + (right - left) / 2;
-        if (vp[mid] == mid + vp[0]) {  // 如果相等，说明左半边是连续的，缺失的数在右半边
-            left = mid + 1;  // mid 计算过了，左指针移到下一位
-        } else {  // 否则被查找的数在左半边，包括 mid，所以右指针移到 mid 位置
+        // 如果相等，说明左半边是连续的，缺失的数在右半边
+        if (vp[mid] == vp[0] + mid) {  
+            left = mid + 1;
+        // 缺失的数在右半边
+        } else {  
             right = mid;
         }
     }
-    int rv = vp[0] + left;  // 如果是连续数组，left 指向最后一个元素，rv 就是最后一个元素
+    int rv = vp[0] + left;
     cout << "缺少的数是：" << rv << endl;
 
     return rv;

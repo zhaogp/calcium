@@ -3,7 +3,7 @@
 
 using namespace std;
 
-double aa_heron_formula(double a, double b, double c);
+double heron_formula(double a, double b, double c);
 int longest_common_subsequence(string x, string y);
 int longest_common_substring(string x, string y);
 bool func03(string x, string y);

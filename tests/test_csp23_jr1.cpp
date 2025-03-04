@@ -65,10 +65,27 @@ TEST(Csp23Test, Bs3102) {
     EXPECT_EQ(miss, 9);
 }
 
+TEST(Csp23Test, Bs3103) {
+    vector<int> v = {1, 2, 3, 4, 5, 6, 7, 8, 10};
+    int miss = bs_find_miss(v);
+    EXPECT_EQ(miss, 9);
+}
+
 TEST(CommonTest, Hanoi) {
     int move_count = hanoi_wrapper(3, "原始柱子", "目标柱子", "中间柱子");
     EXPECT_EQ(move_count, 7);
 }
+
+TEST(Csp23Test, Hl2101) {
+    double area = heron_formula(2, 2, 2);
+    EXPECT_EQ(area, 1.7321);
+}
+
+TEST(Csp23Test, Hl2102) {
+    double area = heron_formula(3, 4, 5);
+    EXPECT_EQ(area, 6.0000);
+}
+
 
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);

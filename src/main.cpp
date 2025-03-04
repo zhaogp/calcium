@@ -13,7 +13,14 @@ using namespace std;
 
 
 int main() {
-    longest_common_subsequence("kitten", "sitting");
+    // longest_common_subsequence("kitten", "sitting");
+    // cout << 20 / 3 << endl;
+    
+    string str01 = "Hello, World!";
+    string str02 = "KBC";
+
+    std::cout << std::boolalpha;
+    cout << bool(str01 != str02) << endl;
 
     return 0;
 }
