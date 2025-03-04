@@ -421,3 +421,40 @@ int dp_coin_change(vector<int> coins, int amount) {
 
     return dp[amount];
 }
+
+// csp23 jr2，第一题：拿苹果
+int take_apples(int n, int target) {
+    /**
+     * 一共有 n 个苹果，每次从第一个开始拿，隔2个再拿，直到最后一个
+     * 求需要几次能拿完，第 target 个苹果在第几次被拿
+     */
+    vector<int> apples(n);
+    for (int i = 0; i < n; i++) {
+        apples[i] = i + 1;
+    }
+    
+    int day = 0, target_day = 0;  // 需要几次能拿完，第 target 个苹果在第几次被拿
+    while (!apples.empty()){
+        day++;
+        vector<int> temp;  // 临时存放下一次的苹果
+        for (int i = 0; i < apples.size(); i++) {
+            if (i % 3 == 0) {
+                cout << apples[i] << " ";
+                if (apples[i] == target) {
+                    target_day = day;
+                }
+            } else {
+                temp.push_back(apples[i]);
+            }
+        }
+        cout << endl;
+        
+        apples = temp;
+    }
+
+    cout << "需要 " << day << " 次能拿完" << endl;
+    cout << "第 " << target << " 个苹果在第 " << target_day << " 次被拿" << endl;
+
+    return target_day;
+
+}

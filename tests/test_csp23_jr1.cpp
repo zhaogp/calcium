@@ -86,6 +86,11 @@ TEST(Csp23Test, Hl2102) {
     EXPECT_EQ(area, 6.0000);
 }
 
+TEST(Csp23Test, AP2301) {
+    int day = take_apples(7, 7);
+    EXPECT_EQ(day, 1);
+}
+
 
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);

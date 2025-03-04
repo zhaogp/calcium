@@ -2,6 +2,20 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "win-build-calcium",
+            "type": "shell",
+            "command": "cd build ;Remove-Item -Path ./* -Recurse ;cmake -G 'Unix Makefiles' .. ;make install",
+            "args": [
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+        },
+        {
             "label": "linux-build-calcium",
             "type": "shell",
             "command": "source /home/zhaoguoping/.bash_profile; cd ${workspaceFolder}/build; rm -rf ./*; cmake ..; make install",
@@ -29,19 +43,6 @@
                 "isDefault": false
             },
         },
-        {
-            "label": "win-build-calcium",
-            "type": "shell",
-            "command": "cd build ;Remove-Item -Path ./* -Recurse ;cmake -G 'Unix Makefiles' .. ;make install",
-            "args": [
-            ],
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
-        },
+
     ],
 }
