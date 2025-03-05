@@ -68,6 +68,7 @@
         "terminal.integrated.fontFamily": "Consolas, 'Courier New', monospace",
         "terminal.integrated.fontSize": 16,
         "terminal.integrated.lineHeight": 1.2,
+        "powershell.cwd": "calcium",
     },
     "extensions": {
         "recommendations": [

@@ -14,4 +14,3 @@ install(TARGETS test_calcium DESTINATION ${CMAKE_SOURCE_DIR}/bin)
 enable_testing()
 add_test(NAME Csp23Test COMMAND test_calcium)
 add_test(NAME CommonTest COMMAND test_calcium)
-

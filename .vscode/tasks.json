@@ -4,9 +4,8 @@
         {
             "label": "win-build-calcium",
             "type": "shell",
-            "command": "cd build ;Remove-Item -Path ./* -Recurse ;cmake -G 'Unix Makefiles' .. ;make install",
-            "args": [
-            ],
+            "command": "powershell -File build.ps1",
+            "args": [],
             "problemMatcher": [
                 "$gcc"
             ],
@@ -19,8 +18,7 @@
             "label": "linux-build-calcium",
             "type": "shell",
             "command": "source /home/zhaoguoping/.bash_profile; cd ${workspaceFolder}/build; rm -rf ./*; cmake ..; make install",
-            "args": [
-            ],
+            "args": [],
             "problemMatcher": [
                 "$gcc"
             ],
@@ -33,8 +31,7 @@
             "label": "mac-build-calcium",
             "type": "shell",
             "command": "cd build; rm -rf ./*; cmake ..; make install",
-            "args": [
-            ],
+            "args": [],
             "problemMatcher": [
                 "$gcc"
             ],
@@ -43,6 +40,5 @@
                 "isDefault": false
             },
         },
-
     ],
 }
