@@ -1,7 +1,7 @@
 {
     "configurations": [
         {
-            "name": "win",
+            "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
                 "C:/Program Files/boost_1_86_0",
@@ -17,7 +17,7 @@
             "intelliSenseMode": "gcc-x64"
         },
         {
-            "name": "mac",
+            "name": "Mac",
             "includePath": [
                 "${workspaceFolder}/**",
                 "/usr/local/Cellar/boost/1.86.0/include",

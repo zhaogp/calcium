@@ -1,4 +1,3 @@
-# 定义源文件和库
 set(SOURCE_FILES
     binary_tree.cpp
     static_const.cpp
@@ -7,6 +6,7 @@ set(SOURCE_FILES
 add_library(junior STATIC ${SOURCE_FILES})
 target_include_directories(junior PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}
-    C:/Boost/include/boost-1_86
+    $ENV{BOOST_HOME}
 )
-target_link_libraries(junior PUBLIC ${Boost_LIBRARIES})
+# target_link_libraries(junior PUBLIC ${Boost_LIBRARIES})
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/lib)

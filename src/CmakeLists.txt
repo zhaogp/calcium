@@ -3,7 +3,7 @@ project(main)
 
 add_executable(calcium main.cpp)
 target_link_libraries(calcium common junior)
-install(TARGETS calcium DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/bin)
+install(TARGETS calcium DESTINATION ${CMAKE_SOURCE_DIR}/bin)
 
 add_subdirectory(common)
 add_subdirectory(junior)

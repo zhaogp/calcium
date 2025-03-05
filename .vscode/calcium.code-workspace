@@ -1,12 +1,12 @@
 {
-	"folders": [
-		{
-			"path": ".."
-		},
-		{
-			"path": "../build"
-		}
-	],
+    "folders": [
+        {
+            "path": ".."
+        },
+        {
+            "path": "../build"
+        }
+    ],
     "settings": {
         "files.associations": {
             "*.json": "json",
@@ -65,11 +65,9 @@
         "C_Cpp.default.intelliSenseMode": "gcc-x64",
         "C_Cpp.default.cppStandard": "c++17",
         "C_Cpp.default.cStandard": "c17",
-        "C_Cpp.default.configuration": "win",
-        "C_Cpp.logging.level": "Information",
-        "code-runner.executorMap": {
-            "cpp": "cd $dir && g++ $fileName -IC:/Users/guopi/jylink/calcium/include -o $fileNameWithoutExt && $dir$fileNameWithoutExt"
-        }
+        "terminal.integrated.fontFamily": "Consolas, 'Courier New', monospace",
+        "terminal.integrated.fontSize": 16,
+        "terminal.integrated.lineHeight": 1.2,
     },
     "extensions": {
         "recommendations": [
