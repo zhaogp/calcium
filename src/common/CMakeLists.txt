@@ -1,14 +1,7 @@
-cmake_minimum_required(VERSION 3.30)
-project(common C CXX)
-
 set(SOURCE_FILES
-    my_sqrt.h
     my_sqrt.cpp
-    dynamic_program.h
     dynamic_program.cpp
 )
 
 add_library(common SHARED STATIC ${SOURCE_FILES})
-
-install(TARGETS common DESTINATION ${CALCIUM_INSTALL_LIB_DIR})
-install(FILES my_sqrt.h DESTINATION ${CALCIUM_INSTALL_INCLUDE_DIR})
+target_include_directories(common PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

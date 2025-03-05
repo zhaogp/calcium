@@ -1,16 +1,12 @@
-cmake_minimum_required(VERSION 3.30)
-project(junior C CXX)
-
+# 定义源文件和库
 set(SOURCE_FILES
-    binary_tree.h
     binary_tree.cpp
-    static_const.h
     static_const.cpp
     csp23_jr1.cpp
-    csp23_jr1.h
 )
-
-add_library(junior SHARED STATIC ${SOURCE_FILES})
-
-install(TARGETS junior DESTINATION ${CALCIUM_INSTALL_LIB_DIR})
-install(FILES binary_tree.h static_const.h csp23_jr1.h DESTINATION ${CALCIUM_INSTALL_INCLUDE_DIR})
+add_library(junior STATIC ${SOURCE_FILES})
+target_include_directories(junior PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    C:/Boost/include/boost-1_86
+)
+target_link_libraries(junior PUBLIC ${Boost_LIBRARIES})

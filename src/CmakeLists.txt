@@ -1,14 +1,9 @@
 cmake_minimum_required(VERSION 3.30)
 project(main)
 
-# 加上指定项目是已编译模式构建的，不然断不住
-set(CMAKE_BUILD_TYPE Debug)
-
-set(SOURCE_FILES main.cpp)
-
-add_executable(calcium ${SOURCE_FILES})
+add_executable(calcium main.cpp)
 target_link_libraries(calcium common junior)
-install(TARGETS calcium DESTINATION ${CALCIUM_INSTALL_BIN_DIR})
+install(TARGETS calcium DESTINATION ${CMAKE_CURRENT_SOURCE_DIR}/bin)
 
 add_subdirectory(common)
 add_subdirectory(junior)
